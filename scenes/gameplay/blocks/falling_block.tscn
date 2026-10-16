@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://diqmhdvqwlhnu"]
+
+[ext_resource type="Script" uid="uid://be6rtf0rmwfcu" path="res://scripts/gameplay/blocks/falling_block.gd" id="1_dcff8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1fef"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dcff8"]
+
+[node name="FallingBlock" type="RigidBody3D" unique_id=1784525423]
+collision_layer = 8
+collision_mask = 15
+gravity_scale = 3.0
+can_sleep = false
+script = ExtResource("1_dcff8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=354491968]
+shape = SubResource("BoxShape3D_s1fef")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=513039838]
+mesh = SubResource("BoxMesh_dcff8")

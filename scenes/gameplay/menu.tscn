@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://dltuy0qlvlkfy"]
+
+[ext_resource type="Script" uid="uid://dgadlrden7cfg" path="res://scripts/gameplay/menu.gd" id="1_l5a48"]
+[ext_resource type="PackedScene" uid="uid://4nky201uhlhj" path="res://scenes/logo.tscn" id="1_oecck"]
+[ext_resource type="FontFile" uid="uid://poxtnv3h8re4" path="res://assets/fonts/Saira/static/Saira-Regular.ttf" id="2_em6ux"]
+[ext_resource type="FontFile" uid="uid://csojqrpfbrh3l" path="res://assets/fonts/Saira/static/Saira_SemiExpanded-Medium.ttf" id="3_l5a48"]
+[ext_resource type="FontFile" uid="uid://p61r8088cnqp" path="res://assets/fonts/Saira/static/Saira_Expanded-Regular.ttf" id="4_goofl"]
+[ext_resource type="Texture2D" uid="uid://c4y6wv4ygmtia" path="res://assets/svg/bolt.svg" id="6_k0naj"]
+[ext_resource type="PackedScene" uid="uid://b045sb2g0bfwv" path="res://scenes/gameplay/menu/settings.tscn" id="7_85fvg"]
+[ext_resource type="PackedScene" uid="uid://b06oamejr1756" path="res://scenes/gameplay/menu/modifiers.tscn" id="7_cvebc"]
+[ext_resource type="Texture2D" uid="uid://dxygcnthaltvb" path="res://assets/svg/home.svg" id="7_sc70w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em6ux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5a48"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_goofl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0naj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sc70w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cvebc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85fvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgcmp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1jh4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vlq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfemm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u76h1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2e8h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6bp0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5ihb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmens"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5hwf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq4aw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4geu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mihfe"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uwelf"]
+load_path = "res://.godot/imported/wrench.svg-0fec7bada8627085f8e2f4716ef83b1b.ctex"
+
+[node name="Menu" type="CanvasLayer" unique_id=975529498]
+script = ExtResource("1_l5a48")
+
+[node name="RestartMenu" type="Control" parent="." unique_id=2144577906]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="RestartMenu" unique_id=306080592]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 200)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_l5a48")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_em6ux")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_l5a48")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_goofl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k0naj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sc70w")
+text = "RESTART"
+flat = true
+
+[node name="StartMenu" type="Control" parent="." unique_id=1991626781]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TapToStartLabel" type="Label" parent="StartMenu" unique_id=1010359058]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.275
+anchor_right = 1.0
+anchor_bottom = 0.4
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_em6ux")
+theme_override_font_sizes/font_size = 56
+text = "TAP TO START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1553680409]
+visible = false
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+theme_override_fonts/font = ExtResource("2_em6ux")
+theme_override_font_sizes/font_size = 72
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestScoreLabel" type="Label" parent="." unique_id=1501996246]
+visible = false
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.2
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("4_goofl")
+theme_override_font_sizes/font_size = 48
+text = "Best: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Logo" parent="." unique_id=62744030 instance=ExtResource("1_oecck")]
+anchors_preset = -1
+anchor_bottom = 0.4
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2
+
+[node name="Modifiers" parent="." unique_id=1595957318 instance=ExtResource("7_cvebc")]
+visible = false
+anchors_preset = -1
+
+[node name="Settings" parent="." unique_id=1102460853 instance=ExtResource("7_85fvg")]
+visible = false
+
+[node name="Navigation" type="Control" parent="." unique_id=363106906]
+layout_mode = 3
+anchor_top = 0.925
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Navigation" unique_id=106871977]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2)
+
+[node name="ModsButton" type="Button" parent="Navigation" unique_id=2130525050]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.33
+anchor_bottom = 0.9
+offset_right = 0.18000793
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_l5a48")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cvebc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_85fvg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dgcmp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1jh4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1vlq8")
+icon = ExtResource("6_k0naj")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="HomeButton" type="Button" parent="Navigation" unique_id=854701]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.1
+anchor_right = 0.66
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_l5a48")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pfemm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u76h1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q2e8h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s6bp0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l5ihb")
+icon = ExtResource("7_sc70w")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="Navigation" unique_id=1478361433]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.90000004
+offset_left = 0.17999268
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_l5a48")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tmens")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y5hwf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qq4aw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_a4geu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mihfe")
+icon = SubResource("CompressedTexture2D_uwelf")
+flat = true
+icon_alignment = 1
+expand_icon = true

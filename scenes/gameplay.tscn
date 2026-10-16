@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bhs4vqqqnoxgg"]
+
+[ext_resource type="Script" uid="uid://brm3jesjwf8wa" path="res://scripts/gameplay.gd" id="1_l1v76"]
+[ext_resource type="PackedScene" uid="uid://dltuy0qlvlkfy" path="res://scenes/gameplay/menu.tscn" id="2_00tan"]
+[ext_resource type="PackedScene" uid="uid://cmgylj2h0qant" path="res://scenes/gameplay/background.tscn" id="2_l1v76"]
+[ext_resource type="Shader" uid="uid://by5gr00wy5tjn" path="res://shaders/gameplay/modifiers/antigravity.gdshader" id="3_ct7aa"]
+[ext_resource type="FontFile" uid="uid://poxtnv3h8re4" path="res://assets/fonts/Saira/static/Saira-Regular.ttf" id="4_ocj2s"]
+
+[sub_resource type="Environment" id="Environment_s1fef"]
+background_mode = 3
+fog_depth_curve = 4.1410527
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s1fef"]
+shader = ExtResource("3_ct7aa")
+
+[node name="Gameplay" type="Node3D" unique_id=525965665 node_paths=PackedStringArray("camera")]
+script = ExtResource("1_l1v76")
+camera = NodePath("Camera")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1585713412]
+environment = SubResource("Environment_s1fef")
+
+[node name="Background" parent="WorldEnvironment" unique_id=2054996881 instance=ExtResource("2_l1v76")]
+layer = -80
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1908721628]
+transform = Transform3D(-0.9999995, 0, 7.5497915e-08, 0, 0.99999964, 0, -7.549792e-08, 0, -0.9999997, 0, 0, 0)
+light_energy = 0.55
+light_bake_mode = 0
+light_cull_mask = 4293918721
+directional_shadow_max_distance = 8192.0
+sky_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1750817646]
+transform = Transform3D(-4.371137e-08, 0, -0.9999997, 0, 0.99999964, 0, 0.9999996, 0, -4.3711374e-08, 0, 0, 0)
+light_energy = 0.8
+light_bake_mode = 0
+light_cull_mask = 4293918721
+directional_shadow_max_distance = 8192.0
+sky_mode = 1
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=2089523375]
+transform = Transform3D(-4.3711367e-08, 0.9999996, -2.9802322e-08, 0, 4.4703484e-08, 0.99999964, 0.9999996, 4.3711374e-08, -4.440892e-15, 0, 0, 0)
+light_bake_mode = 0
+light_cull_mask = 4293918721
+directional_shadow_max_distance = 8192.0
+sky_mode = 1
+
+[node name="FallingBlocks" type="Node3D" parent="." unique_id=2071182464]
+
+[node name="PlacedBlocks" type="Node3D" parent="." unique_id=1185712528]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=798517404]
+transform = Transform3D(-0.7071068, 0.35355332, -0.6123724, -8.9406974e-08, 0.8660254, 0.5, 0.7071067, 0.35355344, -0.6123724, -13.5, 17.5, -13.5)
+projection = 1
+fov = 45.0
+size = 35.0
+
+[node name="Modifiers" type="CanvasLayer" parent="." unique_id=1698907908]
+
+[node name="GravityEffect" type="ColorRect" parent="Modifiers" unique_id=1202732445]
+visible = false
+material = SubResource("ShaderMaterial_s1fef")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EnabledModsLabel" type="Label" parent="Modifiers" unique_id=1314725876]
+anchors_preset = -1
+anchor_left = 0.975
+anchor_top = 0.025
+anchor_right = 0.975
+anchor_bottom = 0.025
+offset_left = -1.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ocj2s")
+theme_override_font_sizes/font_size = 24
+
+[node name="Menu" parent="." unique_id=975529498 instance=ExtResource("2_00tan")]

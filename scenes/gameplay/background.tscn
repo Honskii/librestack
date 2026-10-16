@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cmgylj2h0qant"]
+
+[ext_resource type="Shader" uid="uid://dgnm34xof422b" path="res://shaders/gameplay/background.gdshader" id="1_5icwp"]
+[ext_resource type="Script" uid="uid://d4hn70pxdninl" path="res://scripts/gameplay/background.gd" id="1_ma5a8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s1fef"]
+shader = ExtResource("1_5icwp")
+shader_parameter/top_color = Color(0.1, 0.3, 0.8, 1)
+shader_parameter/bottom_color = Color(1, 1, 1, 1)
+shader_parameter/blend_position = 0.6000000285
+shader_parameter/blend_smoothness = 0.5
+
+[sub_resource type="Gradient" id="Gradient_xcbxg"]
+offsets = PackedFloat32Array(0, 0.50342464, 1)
+colors = PackedColorArray(1, 1, 1, 0.2, 1, 1, 1, 0.8, 1, 1, 1, 0.2)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7h7vs"]
+gradient = SubResource("Gradient_xcbxg")
+
+[sub_resource type="Curve" id="Curve_84tk4"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_gg3s2"]
+curve = SubResource("Curve_84tk4")
+
+[sub_resource type="Curve" id="Curve_gg3s2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4030303, 1), 0.0, 0.0, 0, 0, Vector2(0.59999996, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xcbxg"]
+curve = SubResource("Curve_gg3s2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xkrm3"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(100, 100, 100)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 20.000011
+angle_max = 70.000015
+gravity = Vector3(0, 10, 0)
+scale_min = 5.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_xcbxg")
+color_ramp = SubResource("GradientTexture1D_7h7vs")
+emission_curve = SubResource("CurveTexture_gg3s2")
+
+[node name="Background" type="CanvasLayer" unique_id=2054996881]
+layer = -10
+script = ExtResource("1_ma5a8")
+
+[node name="Sky" type="ColorRect" parent="." unique_id=1757029974]
+material = SubResource("ShaderMaterial_s1fef")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="StarsGPUParticles" type="GPUParticles2D" parent="." unique_id=1550519718]
+amount = 30
+lifetime = 6.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_xkrm3")

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cegiganni67tq"]
+
+[ext_resource type="Script" uid="uid://cw1aiky33wuxa" path="res://scripts/gameplay/platform.gd" id="1_ku4vl"]
+[ext_resource type="Shader" uid="uid://dj2532w1wh7yo" path="res://shaders/gameplay/platform.gdshader" id="2_fdage"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tm3xb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l5a48"]
+render_priority = 0
+shader = ExtResource("2_fdage")
+shader_parameter/object_top_color = Color(1, 1, 1, 1)
+shader_parameter/object_bottom_color = Color(0, 0, 0, 1)
+shader_parameter/object_color_split = 3.0
+shader_parameter/fog_color = Color(0.6039216, 0.7882353, 0.9882353, 1)
+shader_parameter/fog_max_y = -5.0
+shader_parameter/fog_min_y = -12.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1fef"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1fef"]
+
+[node name="Platform" type="StaticBody3D" unique_id=1260555896]
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_tm3xb")
+script = ExtResource("1_ku4vl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=801336085]
+material_override = SubResource("ShaderMaterial_l5a48")
+mesh = SubResource("BoxMesh_s1fef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1948141156]
+shape = SubResource("BoxShape3D_s1fef")

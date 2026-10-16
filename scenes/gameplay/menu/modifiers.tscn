@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://b06oamejr1756"]
+
+[ext_resource type="FontFile" uid="uid://co7utamgex4ju" path="res://assets/fonts/Saira/static/Saira_Expanded-Medium.ttf" id="1_lxih0"]
+[ext_resource type="Script" uid="uid://8jogkmety6di" path="res://scripts/gameplay/menu/modifiers.gd" id="1_wbpsi"]
+[ext_resource type="Shader" uid="uid://dpfxeob5swso0" path="res://shaders/gameplay/menu/blur_bg.gdshader" id="2_lli00"]
+[ext_resource type="FontFile" uid="uid://da16ljmotxr0j" path="res://assets/fonts/Saira/static/Saira_SemiExpanded-Regular.ttf" id="2_lxih0"]
+[ext_resource type="Texture2D" uid="uid://f6g5jfii1e75" path="res://assets/img/grabber.png" id="3_lxih0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sc70w"]
+shader = ExtResource("2_lli00")
+shader_parameter/blur_amount = 3.0000001425
+shader_parameter/tint_color = Color(0, 0, 0, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5odyq"]
+content_margin_bottom = 16.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ix58e"]
+bg_color = Color(1, 1, 1, 0.7490196)
+border_blend = true
+corner_radius_top_left = 500
+corner_radius_bottom_left = 500
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxih0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 500
+corner_radius_bottom_left = 500
+corner_detail = 1
+
+[node name="Modifiers" type="Control" unique_id=1595957318]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_wbpsi")
+
+[node name="Background" type="ColorRect" parent="." unique_id=376732980]
+material = SubResource("ShaderMaterial_sc70w")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.00012207031
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.53333336)
+
+[node name="ModHeader" type="Label" parent="." unique_id=151286194]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.025
+anchor_right = 0.44400004
+anchor_bottom = 0.105000004
+offset_right = -318.68002
+offset_bottom = -117.8
+theme_override_fonts/font = ExtResource("1_lxih0")
+theme_override_font_sizes/font_size = 56
+text = "Modifiers"
+
+[node name="Speed" type="Control" parent="." unique_id=1508818879]
+layout_mode = 1
+anchor_top = 0.105000004
+anchor_right = 1.0
+anchor_bottom = 0.25
+offset_top = -0.40000916
+offset_bottom = -0.11999512
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Speed" unique_id=1234188301]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.025
+anchor_right = 0.05
+anchor_bottom = 0.409
+offset_right = -100.07999
+offset_bottom = -123.62591
+theme_override_fonts/font = ExtResource("2_lxih0")
+theme_override_font_sizes/font_size = 42
+text = "Speed mod: Normal"
+
+[node name="Slider" type="HSlider" parent="Speed" unique_id=1017043412]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.55
+anchor_right = 0.9
+anchor_bottom = 0.75
+offset_left = 0.27999878
+offset_top = 0.0009918213
+offset_bottom = -0.026016235
+theme_override_icons/grabber = ExtResource("3_lxih0")
+theme_override_icons/grabber_highlight = ExtResource("3_lxih0")
+theme_override_icons/grabber_disabled = ExtResource("3_lxih0")
+theme_override_icons/tick = ExtResource("3_lxih0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_5odyq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ix58e")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lxih0")
+min_value = -50.0
+step = 25.0
+
+[node name="Snapping" type="Control" parent="." unique_id=1169139017]
+layout_mode = 1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.395
+offset_bottom = 0.27999878
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Snapping" unique_id=1639720910]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.025
+anchor_right = 0.05
+anchor_bottom = 0.409
+offset_right = -100.07999
+offset_bottom = -123.62591
+theme_override_fonts/font = ExtResource("2_lxih0")
+theme_override_font_sizes/font_size = 42
+text = "Snapping: Normal"
+
+[node name="Slider" type="HSlider" parent="Snapping" unique_id=1818368199]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.55
+anchor_right = 0.9
+anchor_bottom = 0.75
+offset_left = 0.27999878
+offset_top = 0.0009918213
+offset_bottom = -0.026016235
+theme_override_icons/grabber = ExtResource("3_lxih0")
+theme_override_icons/grabber_highlight = ExtResource("3_lxih0")
+theme_override_icons/grabber_disabled = ExtResource("3_lxih0")
+theme_override_icons/tick = ExtResource("3_lxih0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_5odyq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ix58e")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lxih0")
+max_value = 2.0
+value = 1.0
+
+[node name="Regeneration" type="Control" parent="." unique_id=647298325]
+layout_mode = 1
+anchor_top = 0.39900002
+anchor_right = 1.0
+anchor_bottom = 0.541
+offset_top = -4.7200317
+offset_bottom = -0.59991455
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Regeneration" unique_id=804923409]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.025
+anchor_right = 0.05
+anchor_bottom = 0.409
+offset_right = -100.07999
+offset_bottom = -123.618706
+theme_override_fonts/font = ExtResource("2_lxih0")
+theme_override_font_sizes/font_size = 42
+text = "Regeneration: Normal"
+
+[node name="Slider" type="HSlider" parent="Regeneration" unique_id=185019017]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.55
+anchor_right = 0.9
+anchor_bottom = 0.75
+offset_left = 0.27999878
+offset_top = 0.0009918213
+offset_bottom = -0.026016235
+theme_override_icons/grabber = ExtResource("3_lxih0")
+theme_override_icons/grabber_highlight = ExtResource("3_lxih0")
+theme_override_icons/grabber_disabled = ExtResource("3_lxih0")
+theme_override_icons/tick = ExtResource("3_lxih0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_5odyq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ix58e")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lxih0")
+max_value = 2.0
+value = 1.0
+
+[node name="TwistHeader" type="Label" parent="." unique_id=1876420957]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.541
+anchor_right = 0.025
+anchor_bottom = 0.61
+offset_top = -0.47998047
+offset_right = 195.0
+offset_bottom = 0.19995117
+theme_override_fonts/font = ExtResource("1_lxih0")
+theme_override_font_sizes/font_size = 56
+text = "Twists"
+
+[node name="Gravity" type="Control" parent="." unique_id=1644150571]
+layout_mode = 1
+anchor_top = 0.61
+anchor_right = 1.0
+anchor_bottom = 0.75500005
+offset_top = 0.19995117
+offset_bottom = 0.47991943
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Gravity" unique_id=245855520]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.025
+anchor_right = 0.05
+anchor_bottom = 0.409
+offset_right = -100.07999
+offset_bottom = -123.62591
+theme_override_fonts/font = ExtResource("2_lxih0")
+theme_override_font_sizes/font_size = 42
+text = "Gravity: Normal"
+
+[node name="Slider" type="HSlider" parent="Gravity" unique_id=533813342]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.55
+anchor_right = 0.9
+anchor_bottom = 0.75
+offset_left = 0.27999878
+offset_top = 0.0009918213
+offset_bottom = -0.026016235
+theme_override_icons/grabber = ExtResource("3_lxih0")
+theme_override_icons/grabber_highlight = ExtResource("3_lxih0")
+theme_override_icons/grabber_disabled = ExtResource("3_lxih0")
+theme_override_icons/tick = ExtResource("3_lxih0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_5odyq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ix58e")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_lxih0")
+max_value = 1.0

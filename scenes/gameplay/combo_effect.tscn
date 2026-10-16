@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cvbr8m2085oeb"]
+
+[ext_resource type="Script" uid="uid://y0su5n5l6shh" path="res://scripts/gameplay/combo_effect.gd" id="1_8xlli"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft7be"]
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1fef"]
+material = SubResource("StandardMaterial3D_ft7be")
+size = Vector3(1, 0, 1)
+
+[node name="ComboEffect" type="Node3D" unique_id=1796493403]
+script = ExtResource("1_8xlli")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1320304504]
+mesh = SubResource("BoxMesh_s1fef")

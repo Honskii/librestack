@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dl7q5lgkp3vbx"]
+
+[ext_resource type="Script" uid="uid://c5dd41w67611y" path="res://scripts/gameplay/blocks/placed_block.gd" id="1_tm3xb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1fef"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1fef"]
+
+[node name="PlacedBlock" type="StaticBody3D" unique_id=24191325]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_tm3xb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=278549039]
+mesh = SubResource("BoxMesh_s1fef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=137485496]
+shape = SubResource("BoxShape3D_s1fef")
